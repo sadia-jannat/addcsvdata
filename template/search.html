@@ -1,0 +1,204 @@
+{%load static %}
+<!DOCTYPE>
+<html>
+  <head>
+   
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<!--main.js for js folder
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>-->
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Fontawesome link for text-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<!--Autocomplete link-->
+<link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"/>
+
+
+<!-- jQuery for auto search last -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- jQuery UI for auto search last-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- static nebar link
+{%load static %}
+<link rel="stylesheet" href="{% static 'css/styletwo.css'%}">
+-->
+
+
+ <title>House </title>
+ <style>
+ section{
+    background-color:#E5E5E5;
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+  }
+  .input-group{
+    width: auto;
+    background-color: white;
+}
+
+ </style>
+
+</head>
+<body>             
+
+    <section>
+        <div class="container-fluid text-light py-2 px-2 rounded shadow rounded rounded-pill" style="background-color: #abb0b6;" >
+            <header class="text-center">
+                <h4>Search Polling Booth Name</h4>
+            </header>
+          </div>
+        
+<!--check login -->
+   {% if login_result == 0 %}  
+ <!--end login-->
+
+    <!--search-->
+    <div class="container">  
+        <div class="row mb-5"> 
+         <div class="col-lg-12 mx-auto">  
+            
+            <!--search start-->  
+            <div class="bg-white p-5 m-5 rounded shadow rounded rounded-pill">  
+                       
+                  <div class="input-group">  
+                
+                    <form action="" method="get" class="d-flex">
+
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="querynum" placeholder="Polling Booth Number" aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="queryname" placeholder="Polling Booth Name" aria-label="Search " >
+                      <input class="form-control rounded rounded-pill m-4 border-dark border-5 bg-transparent " type="text" name="queryparent" placeholder="Parent Constituency" aria-label="Search " >
+                     
+                      <div class="input-group-append"> 
+                      <button style="background-color: #686b6e;" class="btn  rounded rounded-pill m-4 border-5 "><i class="fa fa-search fa-1x" style="color: white;"> </i></button>
+                      </div>
+      
+                  </form>  
+                  
+                  </div>  
+                
+          </div> 
+    <!--end search start--> 
+    <span>You can search  one by one or any two options or togetherly</span>
+          </div>  
+        </div>     
+      </div>  
+
+      <!--check login-->
+      {% endif %}
+      <!--end login-->
+
+      </section>
+    <!--end search latest--> 
+    <!--search result-->
+    <section>
+      {% if products %}
+        
+                  
+        
+      <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+          <tr>
+          
+            <th scope="col">Polling Booth Number</th>
+           <th scope="col">Polling Booth Name</th>
+            <th scope="col">Parent Constituency</th>
+            <th scope="col">Winner- 2014</th>
+            <th scope="col">1st Runner up other than INC and BJP</th>
+            <th scope="col">Margin (%)</th>
+            <th scope="col">Margin</th>
+            <th scope="col">Total Voters</th>
+            <th scope="col">BJP - Votes</th>
+            <th scope="col">BJP- % vote</th>
+            <th scope="col">INC- Votes</th>
+            <th scope="col">INC- % votes</th>
+            <th scope="col">Winner- 2019</th>
+            <th scope="col">Margin %</th>
+            <th scope="col">Margin</th>
+            <th scope="col">Total Voters</th>
+            <th scope="col">BJP- Votes</th>
+            <th scope="col">BJP- % votes</th>
+            <th scope="col">INC- Votes</th>
+            <th scope="col">INC- % Votes</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            
+    
+          </tr>
+        </thead>
+        <tbody>
+    
+          {% for p in products %}
+    
+          <tr>
+            
+            <th scope="row">{{p.polling_booth_number}}</th>
+           <th scope="row">{{p.polling_booth_name}}</th>
+            <td>{{p.parent_constituency}}</td>
+            <td>{{p.winner_2014}}</td>
+            <td>{{p.runnerup}}</td>
+            <td>{{p.margin_percente}}</td>
+            <td>{{p.margin}}</td>
+            <td>{{p.total_voter}}</td>
+            <td>{{p.bjp_votes}}</td>
+            <td>{{p.bjp_percente_votes}}</td>
+            <td>{{p.inc_votes}}</td>
+            <td>{{p.inc_percente_votes}}</td>
+            <td>{{p.winner_2019}}</td>
+            <td>{{p.margin_percente_2}}</td>
+            <td>{{p.margin_2}}</td>
+            <td>{{p.total_voter_2}}</td>
+            <td>{{p.bjp_votes_2}}</td>
+            <td>{{p.bjp_percente_votes_2}}</td>
+            <td>{{p.inc_votes_2}}</td>
+            <td>{{p.inc_percente_votes_2}}</td>
+
+            <!--edit, delete options-->
+            <td>
+                <a href="{% url 'search_edit' p.id %}">Edit</a>    <!--edit ar jonno-->
+            </td>
+            
+            <td>
+                <form action="{% url 'search_delete' p.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                </form>
+            </td>
+            <!--end edit, delete options-->
+    
+    
+           </tr>
+         
+           {% endfor %}
+    
+    </tbody>
+    </table>
+    
+        
+    {% else %}
+         <h6 style="color: rgb(10, 1, 1);">Search and see data</h6>
+    {% endif %}
+    
+    </section>
+    
+    <!--end search result-->
+
+<!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+    <!--Autocomplete javascript Link-->
+    <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+  </body>
+</html>        
