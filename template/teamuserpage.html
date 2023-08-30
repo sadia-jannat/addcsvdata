@@ -55,83 +55,40 @@
 
 <div class="container">  
     <div class="row mb-5">
-    <button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/">Back to Home page</a></button>
-    <button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="{% url 'teamuserpage' %}">See Team user page</a></button> 
+    <button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="{% url 'dashboard' %}">Back to Admin page</a></button> 
     </div>
 </div>  
 
-<h1 style="text-align: center;">Admin dashbord</h1>
-
-<!--check login -->
-{% if login_result == 0 %}  
-<!--end login-->
+<h1 style="text-align: center;">Team User dashbord</h1>
 
 <!--<p style="text-align: center;">{{today}}</p>-->
 <div class="content">
-{% if formfetch %}
+{% if teamuser %}
 
 <table class="table table-bordered table-striped ">
     <thead class="thead-dark">
       <tr>
       
-        <th scope="col">Polling Booth Number</th>
-       <th scope="col">Polling Booth Name</th>
-        <th scope="col">Parent Constituency</th>
-        <th scope="col">Winner- 2014</th>
-        <th scope="col">1st Runner up other than INC and BJP</th>
-        <th scope="col">Margin (%)</th>
-        <th scope="col">Margin</th>
-        <th scope="col">Total Voters</th>
-        <th scope="col">BJP - Votes</th>
-        <th scope="col">BJP- % vote</th>
-        <th scope="col">INC- Votes</th>
-        <th scope="col">INC- % votes</th>
-        <th scope="col">Winner- 2019</th>
-        <th scope="col">Margin %</th>
-        <th scope="col">Margin</th>
-        <th scope="col">Total Voters</th>
-        <th scope="col">BJP- Votes</th>
-        <th scope="col">BJP- % votes</th>
-        <th scope="col">INC- Votes</th>
-        <th scope="col">INC- % Votes</th>
-        <th scope="col">Edit</th>
+        <th scope="col">Teamuser Name</th>
+        <th scope="col">Teamuser NID</th>
+        <th scope="col">Teamuser Email</th>
+        <th scope="col">Teamuser Location</th>
         <th scope="col">Delete</th>
 
       </tr>
     </thead>
     <tbody>
 
-        {% for f in formfetch%}
+        {% for t in teamuser%}
 
       <tr>
         
-        <th scope="row">{{f.polling_booth_number}}</th>
-       <th scope="row">{{f.polling_booth_name}}</th>
-        <td>{{f.parent_constituency}}</td>
-        <td>{{f.winner_2014}}</td>
-        <td>{{f.runnerup}}</td>
-        <td>{{f.margin_percente}}</td>
-        <td>{{f.margin}}</td>
-        <td>{{f.total_voter}}</td>
-        <td>{{f.bjp_votes}}</td>
-        <td>{{f.bjp_percente_votes}}</td>
-        <td>{{f.inc_votes}}</td>
-        <td>{{f.inc_percente_votes}}</td>
-        <td>{{f.winner_2019}}</td>
-        <td>{{f.margin_percente_2}}</td>
-        <td>{{f.margin_2}}</td>
-        <td>{{f.total_voter_2}}</td>
-        <td>{{f.bjp_votes_2}}</td>
-        <td>{{f.bjp_percente_votes_2}}</td>
-        <td>{{f.inc_votes_2}}</td>
-        <td>{{f.inc_percente_votes_2}}</td>
-
+        <th scope="row">{{t.name}}</th>
+        <th scope="row">{{t.nid}}</th>
+        <td>{{t.email}}</td>
+        <td>{{t.location}}</td> 
         <td>
-            <a href="{% url 'dashboard_edit' f.id %}">Edit</a>    <!--edit ar jonno-->
-        </td>
-        
-        <td>
-            <form action="{% url 'dashboard_delete' f.id %}" method="post">
+            <form action="{% url 'teamuser_delete' t.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="Delete">
             </form>
@@ -147,11 +104,6 @@
 {%endif%}
 
 </div>
-
-  <!--check login-->
-  {% endif %}
-  <!--end login-->
-
 </section>
 
 

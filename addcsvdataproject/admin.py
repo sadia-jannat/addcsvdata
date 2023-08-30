@@ -5,12 +5,9 @@ from django.contrib import admin
 from django.contrib import admin
 
 from import_export.admin import ImportExportModelAdmin
-from addcsvdataproject.models import test,booth
+from addcsvdataproject.models import booth
 
-@admin.register(test)
-class testAdmin(ImportExportModelAdmin):
-     list_display = ("name","age")
-     pass
+
 
 @admin.register(booth)
 class boothAdmin(ImportExportModelAdmin):
@@ -19,3 +16,11 @@ class boothAdmin(ImportExportModelAdmin):
                      "winner_2019","margin_percente_2","margin_2","total_voter_2","bjp_votes_2","bjp_percente_votes_2",
                      "inc_votes_2","inc_percente_votes_2")
      pass
+
+
+#not import export admin bellow
+from .models import TeamRegtration
+@admin.register(TeamRegtration)
+class TeamRegtrationadmin(admin.ModelAdmin):
+    list_display= ['name','nid','location','email','password']
+

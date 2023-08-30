@@ -121,6 +121,36 @@
 </head>
 <body>             
 
+<!-- a portal for internal use of the team-->
+<div class="container-fluid text-light py-4 rounded shadow rounded rounded-pill" style="background-color: #abb0b6;" >
+    <header class="text-center">
+          <h1><i class="fas fa-home " style="color: #051937;"></i>Assignment</h1>
+            <h2 style="color: #051937;">A Portal for Internal Use</h2>
+            
+    </header>
+
+      <form class="form-inline mx-3 my-2 my-lg-0 text-center " style="text-align: center;">
+          <button class="btn btn-outline-dark mx-3 my-2 my-sm-0" type="submit"><a href="{% url 'search' %}">Search Table Page</a></button>
+          <!--<button class="btn btn-outline-dark mx-3 my-2 my-sm-0" type="submit"><a href="/">Doctor's Form</a></button>-->
+          <button class="btn btn-outline-dark mx-3 my-2 my-sm-0" type="submit"><a href="{% url 'dashboard' %}">Dashboard Page</a></button>
+          <button class="btn btn-outline-dark mx-3 my-2 my-sm-0" type="submit"><a href="{% url 'boothadd' %}">New Booth Add Page</a></button>
+          <button class="btn btn-outline-dark mx-3 my-2 my-sm-0" type="submit"><a href="{% url 'teamsignup' %}">Teamsignup Page</a></button>
+        </form>
+  </div>
+
+  <div class="container-fluid py-4 rounded shadow rounded rounded-pill">
+    <span class="mx-5 my-5 " style="text-align: center;">1.In <b>search_table page</b>, 'PPA Booth Analysis AC Arvi' table data is filtering by Polling Booth Number,
+        Polling Booth Name, Parent Constituency element, winner_2014 and winner_2019. Superadmin have to be signup with authentication and without permission no user or team can access 
+        page.
+        After searching,the user can see data in the table.Then user can edit/add and delete data from the table.
+    </span ><br>
+    <span class="mx-5 my-5 " style="text-align: center;">2.In <b>dashboard_table page</b>, Only admin can see, edit/add and delete data from the table.Admin can show the teamuser page and delete the teamuser if need.</span> <br>  
+    <span class="mx-5 my-5 " style="text-align: center;">3.In <b>new_booth_add page</b>, Admin can add new booth details in the page.</span> <br>  
+    <span class="mx-5 my-5 " style="text-align: center;">4.In <b>teamsign_page</b>, New team member have to be signup in the page.</span> <br>
+    <span class="mx-5 my-5 " style="text-align: center;">5. Without super admin permission, no one can access anything.</span>
+  </div>
+<!--end-->
+<!--signup-->    
 <section>
 
 <div class="container h-100">
@@ -128,7 +158,7 @@
 <div class="user_card"> 
 
 <div class="d-flex justify-content-center">
-    <h3 id="form-title">REGISTER ACCOUNT</h3>
+    <h3 id="form-title">REGISTRATION ACCOUNT</h3>
 </div>
 
 <div class="d-flex justify-content-center form_container">
@@ -194,9 +224,7 @@
 
 </section>
 
-
-/*field ar place hold use by javascrip*/
-//Query All input fields
+<!--all javascript code for input placement name work-->>
 <script>
 		var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='Username..';

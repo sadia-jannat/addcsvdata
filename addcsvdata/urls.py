@@ -26,10 +26,14 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('userlogin/', views.userlogin, name="userlogin"),
     path('userlogout/', views.userlogout, name="userlogout"),
+    path('boothadd/', views.boothadd, name='boothadd'),
     path('search/', views.search, name='search'),
     path('search_edit/<int:id>/', views.search_edit, name='search_edit'),
     path('search_delete/<int:id>/', views.search_delete, name='search_delete'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard_edit/<int:id>/', views.dashboard_edit, name='dashboard_edit'),
     path('dashboard_delete/<int:id>/', views.dashboard_delete, name='dashboard_delete'),
+    path('teamsignup/', views.teamsignup, name='teamsignup'),
+    path('teamuserpage/', views.teamuserpage, name="teamuserpage"),
+    path('teamuser_delete/<int:id>', views.teamuser_delete, name='teamuser_delete')
 ]

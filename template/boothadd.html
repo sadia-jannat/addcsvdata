@@ -1,0 +1,203 @@
+{%load static %}
+
+<html>
+  <head>
+   
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Fontawesome link for text-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Autocomplete link-->
+<link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"/>
+
+
+<!-- jQuery for auto search last -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- jQuery UI for auto search last-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- static nebar link-->
+{%load static %}
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+ <title>House </title>
+
+<!--latest--> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+ <!--end-->
+
+
+</head>
+<body >
+<!--start form-->
+<div class="container-fluid text-light py-4 rounded shadow rounded rounded-pill" style="background-color: #abb0b6;">
+    <header class="text-center">
+        <h4 class="display-6">New Booth Table Fillup</h4>
+    </header>
+</div>
+
+<!--check login -->
+{% if login_result == 0 %}  
+<!--end login-->
+
+<div class="container">  
+<div class="row mb-5">
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/">Back to Home page</a></button> 
+</div>
+</div>     
+
+<section>
+<div class="d-flex justify-content-center">  <!--center form-->
+
+<div class="container mx-4 my-4 w-50 text-light p-2 rounded shadow " style="background-color: #051937;">
+  
+    <form action="" method="POST" enctype="multipart/form-data" class="row g-3">
+
+            {% csrf_token %} 
+      
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">Polling Booth Number</label>
+            <input Required name="polling_booth_number" type="number" class="form-control" id="inputAddress" placeholder="Polling Booth Number...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Polling Booth Name</label>
+            <input Required name="polling_booth_name" type="text" class="form-control" id="inputAddress" placeholder="Polling Booth Name...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Parent Constituency</label>
+            <input Required name="parent_constituency" type="text" class="form-control" id="inputAddress" placeholder="Polling Booth Name...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Winner 2014</label>
+            <input Required name="winner_2014" type="text" class="form-control" id="inputAddress" placeholder="Winner 2014...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">1st Runner up other than INC and BJP
+            </label>
+            <input Required name="runnerup" type="text" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Margin (%)
+            </label>
+            <input Required name="margin_percente" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Margin
+            </label>
+            <input Required name="margin" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Total Voters 
+            </label>
+            <input Required name="total_voter" type="number" class="form-control" id="inputAddress" placeholder="Total Voters...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">BJP - Votes
+            </label>
+            <input Required name="bjp_votes" type="number" class="form-control" id="inputAddress" placeholder="BJP - Votes...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">BJP- % vote
+            </label>
+            <input Required name="bjp_percente_votes" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">INC- Votes
+            </label>
+            <input Required name="inc_votes" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">INC- % votes
+            </label>
+            <input Required name="inc_percente_votes" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Winner- 2019
+            </label>
+            <input Required name="winner_2019" type="text" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Margin %
+            </label>
+            <input Required name="margin_percente_2" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Margin
+            </label>
+            <input Required name="margin_2" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Total Voters
+            </label>
+            <input Required name="total_voter_2" type="number" class="form-control" id="inputAddress" placeholder="Total Voters...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">BJP- Votes
+            </label>
+            <input Required name="bjp_votes_2" type="number" class="form-control" id="inputAddress" placeholder="BJP- Votes...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">BJP- % votes
+            </label>
+            <input Required name="bjp_percente_votes_2" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">INC- Votes
+            </label>
+            <input Required name="inc_votes_2" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">INC- % Votes
+            </label>
+            <input Required name="inc_percente_votes_2" type="number" class="form-control" id="inputAddress" placeholder="enter...">
+          </div>   
+
+        <br>
+               
+        <div class="col-12">
+          <button type="submit" class="btn mt-2" style="background-color:rgb(240, 244, 245);"><h6 style="color: black;">Apply</h6></button>
+        </div>
+
+      </form> <br>
+
+     <!--messages set -->
+{% if messages %}
+
+{% for message in messages %}
+ <h3 {% if message.tags %} class="{{message.tags}}" {% endif %}>
+ {{message}}
+ </h3>
+{% endfor %}
+
+{% endif %} 
+
+</div>
+
+</div>
+</section>
+
+ <!--check login-->
+ {% endif %}
+ <!--end login-->
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>        
