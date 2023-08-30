@@ -1,12 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class test(models.Model):
-    name=models.CharField(max_length=100)
-    age=models.IntegerField()
-    class Meta:
-        db_table = "test_table"
-
 
 class booth(models.Model):
     polling_booth_number=models.IntegerField()
@@ -31,6 +25,16 @@ class booth(models.Model):
     inc_percente_votes_2=models.FloatField()
     class Meta:
         db_table ="main_table"
+
+class TeamRegtration(models.Model):
+    name=models.CharField(max_length=200) 
+    nid=models.IntegerField()
+    location=models.CharField(max_length=200)
+    email=models.EmailField()
+    password=models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
 
 
